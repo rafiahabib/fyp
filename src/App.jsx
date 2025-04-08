@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Routes, Route } from 'react-router-dom'
-import Signuppage from './pages/Signuppage'
-import Loginpage from './pages/Loginpage'
+import Login from './components/Login'
+import Signup from './components/Signup'
 function App() {
   return (
     <div>
@@ -10,9 +10,9 @@ function App() {
 
     <Routes>
 
-    <Route path="/" element={<Loginpage/>} />
-        <Route path="/signup" element={<Signuppage />} />
-       
+    <Route path='/' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
     </Routes>
     </div>
   )
