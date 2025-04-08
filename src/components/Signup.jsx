@@ -1,72 +1,97 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
-  
-    const [username, setFName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [UserName, setUserName] = useState("");
+    const [Password, setPassword] = useState("");
+    const [Email, setemail] = useState("");
+   
     const navigate = useNavigate();
 
-    const handleSignup = async (e) => {
+    const handleSignup = (e) => {
         e.preventDefault();
-        try {
-            //await axios.post("http://localhost:3002/auth/signup", { Fname, Lname, email, password });
-            // await signupUser(Fname,Lname,email,password);
-            alert("Signup Successful. Please login.");
-            navigate("/login");
-        } catch (err) {
-            console.log("Signup failed", err);
-            alert("Signup failed. Try again.");
+
+        const user = {
+            username: UserName,
+            password: Password,
+            email: Email,
+            
+        };
+
+        // Check if user already exists
+        const existingUser = JSON.parse(localStorage.getItem("user"));
+        if (existingUser && existingUser.username === user.username) {
+            alert("User already exists. Try a different username.");
+            return;
         }
+
+        localStorage.setItem("user", JSON.stringify(user));
+        alert("Successfully signed up");
+        navigate("/login");
     };
-    const handleUsername = (e) => {
-        setFName(e.target.value);
-    }
-   
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    }
-    const handlePass = (e) => {
-        setPassword(e.target.value);
-    }
 
-  return (
-    
+    return (
+        <section className="flex items-center justify-center h-screen bg-gradient-to-r from-black to-gray-900">
+            <div className="bg-gray-800 p-8 rounded-2xl shadow-2xl w-96">
+                <h2 className="text-2xl font-bold text-white text-center">Create Account</h2>
+                <p className="text-gray-400 text-sm text-center mb-6">Join us today</p>
 
-    
-    //
-    <div className="min-h-screen flex items-center justify-center bg-gray-800">
-    <div className="bg-gray-900 shadow-lg rounded-lg p-8 max-w-md w-full">
-        <h2 className="text-3xl font-bold text-center text-gray-200 mb-6">Create an Account</h2>
-        <form onSubmit={handleSignup} className="space-y-4">
-            <input type="text" placeholder="User Name" value={username} onChange={handleUsername} required
-                className="w-full p-3 border border-gray-700 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600"
-            />
-            <input type="email" placeholder="Email" value={email} onChange={handleEmail} required
-                className="w-full p-3 border border-gray-700 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600"
-            />
-            <input type="password" placeholder="Password" value={password} onChange={handlePass} required
-                className="w-full p-3 border border-gray-700 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600"
-            />
-            <button type="submit" className="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded-lg transition duration-300">
-                Sign Up
-            </button>
-        </form>
-        <p className="text-gray-400 text-center mt-4">
-            Already have an account? <Link to="/login" className="text-gray-300 hover:underline">Login</Link>
-        </p>
-    </div>
-</div>
+                <form onSubmit={handleSignup} className="space-y-4">
+                    <div>
+                        <label className="block text-gray-300 font-semibold">Email</label>
+                        <input
+                            id="email"
+                            type="email"
+                            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-gray-400 outline-none"
+                            placeholder="Enter Your Email"
+                            value={Email}
+                            onChange={(e) => setemail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    
+                    <div>
+                        <label className="block text-gray-300 font-semibold">Username</label>
+                        <input
+                            id="username"
+                            type="text"
+                            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-gray-400 outline-none"
+                            placeholder="Enter your username"
+                            value={UserName}
+                            onChange={(e) => setUserName(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-gray-300 font-semibold">Password</label>
+                        <input
+                            id="password"
+                            type="password"
+                            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-gray-400 outline-none"
+                            placeholder="Create a password"
+                            value={Password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
 
-       
-       
-     
-     
-     
-     
-  
-  );
+                    <button
+                        type="submit"
+                        className="w-full bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 rounded-lg transition-all duration-300 shadow-lg"
+                    >
+                        Sign Up
+                    </button>
+                </form>
+
+                <p className="login text-sm text-center text-gray-400 mt-4">
+                    Already have an account?{" "}
+                    <Link to="/login" className="text-gray-300 font-semibold hover:underline">
+                        Log In
+                    </Link>
+                </p>
+            </div>
+        </section>
+    );
 }
 
 export default Signup;
