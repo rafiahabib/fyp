@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import backgroundImage from "../assets/backgroung/bg.jpg"
 function Signup() {
     const [UserName, setUserName] = useState("");
     const [Password, setPassword] = useState("");
@@ -31,9 +31,19 @@ function Signup() {
     };
 
     return (
-        <section className="flex items-center justify-center h-screen bg-gradient-to-r from-black to-gray-900">
-            <div className="bg-gray-800 p-8 rounded-2xl shadow-2xl w-96">
-                <h2 className="text-2xl font-bold text-white text-center">Create Account</h2>
+        <section className="flex items-center justify-center h-screen "
+        style={{
+            
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: "cover",        // Makes the image fill the entire section
+            backgroundRepeat: "no-repeat",  // Prevents tiling
+            backgroundPosition: "center",   // Keeps the image centered
+            width: "100%",                  // Makes sure the section takes full width
+             height: "100vh", 
+        }}
+        >
+            <div className="bg-[#D9D9D9] p-8 rounded-2xl shadow-2xl w-1/3 border border-2 border-[#173B45]">
+                <h2 className="text-2xl font-bold text-[#173B45] text-center">Create Account</h2>
                 <p className="text-gray-400 text-sm text-center mb-6">Join us today</p>
 
                 <form onSubmit={handleSignup} className="space-y-4">
@@ -42,7 +52,7 @@ function Signup() {
                         <input
                             id="email"
                             type="email"
-                            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-gray-400 outline-none"
+                            className="w-full px-4 py-2 rounded-lg bg-white border-2 border border-[#173B45] text-[#173B45] focus:ring-2 focus:ring-gray-400 outline-none"
                             placeholder="Enter Your Email"
                             value={Email}
                             onChange={(e) => setemail(e.target.value)}
@@ -55,7 +65,7 @@ function Signup() {
                         <input
                             id="username"
                             type="text"
-                            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-gray-400 outline-none"
+                            className="w-full px-4 py-2 rounded-lg bg-white border-2 border border-[#173B45] text-[#173B45] focus:ring-2 focus:ring-gray-400 outline-none"
                             placeholder="Enter your username"
                             value={UserName}
                             onChange={(e) => setUserName(e.target.value)}
@@ -67,7 +77,7 @@ function Signup() {
                         <input
                             id="password"
                             type="password"
-                            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-gray-400 outline-none"
+                            className="w-full px-4 py-2 rounded-lg bg-white border-2 border border-[#173B45] text-[#173B45] focus:ring-2 focus:ring-gray-400 outline-none"
                             placeholder="Create a password"
                             value={Password}
                             onChange={(e) => setPassword(e.target.value)}
@@ -77,15 +87,15 @@ function Signup() {
 
                     <button
                         type="submit"
-                        className="w-full bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 rounded-lg transition-all duration-300 shadow-lg"
+                        className="w-full bg-[#173B45] border border-2 border-[#173B45] text-white font-semibold py-2 rounded-lg  shadow-lg"
                     >
                         Sign Up
                     </button>
                 </form>
 
-                <p className="login text-sm text-center text-gray-400 mt-4">
+                <p className="login text-sm text-center text-gray-900 mt-4">
                     Already have an account?{" "}
-                    <Link to="/login" className="text-gray-300 font-semibold hover:underline">
+                    <Link to="/login" className="text-sm text-cyan-400 ">
                         Log In
                     </Link>
                 </p>
