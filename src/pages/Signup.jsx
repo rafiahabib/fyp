@@ -48,7 +48,7 @@ function Signup() {
 
                 <form onSubmit={handleSignup} className="space-y-4">
                     <div>
-                        <label className="block text-gray-300 font-semibold">Email</label>
+                        <label className="block text-gray-[#172B45] font-semibold">Email</label>
                         <input
                             id="email"
                             type="email"
@@ -61,7 +61,7 @@ function Signup() {
                     </div>
                     
                     <div>
-                        <label className="block text-gray-300 font-semibold">Username</label>
+                        <label className="block text-gray-[#172B45] font-semibold">Username</label>
                         <input
                             id="username"
                             type="text"
@@ -73,7 +73,7 @@ function Signup() {
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-300 font-semibold">Password</label>
+                        <label className="block text-gray-[#172B45] font-semibold">Password</label>
                         <input
                             id="password"
                             type="password"

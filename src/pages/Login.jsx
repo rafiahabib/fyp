@@ -42,7 +42,7 @@ function Login() {
 
                 <form onSubmit={handleLogin} className="space-y-4">
                     <div>
-                        <label className="block text-gray-300 font-medium">Email</label>
+                        <label className="block text-gray-[#172B45] font-medium">Email</label>
                         <input
                             id="email"
                             type="text"
@@ -55,11 +55,11 @@ function Login() {
                     </div>
 
                     <div>
-                        <label className="block text-gray-300 font-medium">Password</label>
+                        <label className="block text-gray-[#172B45] font-medium">Password</label>
                         <input
                             id="password"
                             type="password"
-                            className="w-full px-4 py-2 rounded-lg bg-white text-[#173B45] border border-2 border-[#173B45] focus:ring-2 focus:ring-gray-500 outline-none text-white shadow-md"
+                            className="w-full px-4 py-2 rounded-lg bg-white text-[#173B45] border border-2 border-[#173B45]  shadow-md"
                             placeholder="Enter your password"
                             value={Password}
                             onChange={(e) => setPassword(e.target.value)}
