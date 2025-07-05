@@ -123,8 +123,14 @@ const VerificationModal = ({ isOpen, onClose, onComplete, selectedCommittee, sel
     setVerificationError('');
 
     try {
-      // Simulate API call for CNIC verification
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Convert base64 image to blob for API
+      const cnicBlob = await fetch(cnicImage).then(res => res.blob());
+      
+  
+      const formData = new FormData();
+      formData.append('cnic_number', cnicNumber.replace(/-/g, '')); // Remove dashes
+      formData.append('id_image', cnicBlob, 'cnic.jpg');
+      
       setCnicVerified(true);
       setCurrentStep(2);
     } catch (error) {
@@ -134,9 +140,15 @@ const VerificationModal = ({ isOpen, onClose, onComplete, selectedCommittee, sel
     }
   };
 
+
   const verifyFace = async () => {
     if (!faceImage) {
       setVerificationError('Please capture or upload your photo');
+      return;
+    }
+
+    if (!cnicImage) {
+      setVerificationError('CNIC verification required first');
       return;
     }
 
@@ -144,17 +156,40 @@ const VerificationModal = ({ isOpen, onClose, onComplete, selectedCommittee, sel
     setVerificationError('');
 
     try {
-      // Simulate API call for face verification
-      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      const idBlob = await fetch(cnicImage).then(res => res.blob());
+      const selfieBlob = await fetch(faceImage).then(res => res.blob());
+      
+      
+      const formData = new FormData();
+      formData.append('id_image', idBlob, 'id.jpg');
+      formData.append('selfie_image', selfieBlob, 'selfie.jpg');
+      
+      
+      const response = await fetch('http://127.0.0.1:5000/verify', {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.error) {
+        throw new Error(result.error);
+      }
+
+      if (!result.verified) {
+        throw new Error(`Face verification failed. Confidence: ${result.confidence}% (needs to be above ${result.threshold})`);
+      }
+
       setFaceVerified(true);
       
-      // Complete verification process
+      
       setTimeout(() => {
         onComplete();
         handleClose();
       }, 1000);
     } catch (error) {
-      setVerificationError('Face verification failed. Please try again.');
+      setVerificationError(error.message || 'Face verification failed. Please try again.');
     } finally {
       setIsVerifying(false);
     }

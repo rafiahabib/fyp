@@ -68,10 +68,10 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[#07232A] from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         {/* Login Form */}
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+        <div className="bg-[#D9D9D9] rounded-2xl shadow-xl border border-gray-100 p-8">
           {/* Logo and Header inside the form */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-6">

@@ -76,9 +76,9 @@ export default function CommitteePage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-[#042E3A]">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-2xl font-bold text-gray-900">Digital Committee</h1>
+        <h1 className="text-2xl font-bold text-white">Digital Committee</h1>
         {isAdmin() && (
           <div className="flex items-center space-x-2">
             <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
@@ -114,7 +114,7 @@ export default function CommitteePage() {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <Search className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Join Committee</h2>
+              <h2 className="text-xl font-bold text-white mb-2">Join Committee</h2>
               <p className="text-gray-600 mb-4">
                 Browse and join existing committees. Find the perfect savings group that matches your financial goals and timeline.
               </p>

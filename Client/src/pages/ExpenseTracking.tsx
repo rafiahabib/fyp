@@ -123,7 +123,7 @@ export default function ExpenseTracking() {
   };
 
   return (
-    <div className="">
+    <div className=" bg-[#042E3A]">
       {loading ? (
         <div className="flex justify-center items-center h-64">
           <p className="text-gray-500">Loading...</p>
@@ -134,7 +134,7 @@ export default function ExpenseTracking() {
           <div className="space-y-6">
 
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <h1 className="text-2xl font-bold text-gray-900">Expense Tracking</h1>
+            <h1 className="text-2xl font-bold text-white">Expense Tracking</h1>
             <div className="flex space-x-2">
               <Button
                 variant="primary"
@@ -166,7 +166,7 @@ export default function ExpenseTracking() {
   
           {/* Summary Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
+            <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-300">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-green-600 mb-1">This Month Income</p>
@@ -176,7 +176,7 @@ export default function ExpenseTracking() {
               </div>
             </Card>
   
-            <Card className="bg-gradient-to-r from-red-50 to-pink-50 border-red-200">
+            <Card className="bg-gradient-to-r from-red-50 to-pink-50 border-red-300">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-red-600 mb-1">This Month Expenses</p>
@@ -186,7 +186,7 @@ export default function ExpenseTracking() {
               </div>
             </Card>
   
-            <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+            <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-300">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-blue-600 mb-1">Net Savings</p>

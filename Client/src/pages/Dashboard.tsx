@@ -90,16 +90,16 @@ export default function Dashboard() {
       value: `PKR ${remainingBalance.toFixed(2)}`,
       icon: Wallet,
       color: 'text-green-600',
-      bgColor: 'bg-green-50',
-      borderColor: 'border-green-200'
+      bgColor: 'bg-green-100',
+      borderColor: 'border-green-300'
     },
     {
       title: 'Total Income',
       value: `PKR ${totalIncome.toFixed(2)}`,
       icon: TrendingUp,
       color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200'
+      bgColor: 'bg-blue-100',
+      borderColor: 'border-blue-300'
     },
     {
       title: 'Total Expenses',
@@ -107,7 +107,7 @@ export default function Dashboard() {
       icon: TrendingDown,
       color: 'text-red-600',
       bgColor: 'bg-red-50',
-      borderColor: 'border-red-200'
+      borderColor: 'border-red-300'
     }
   ];
 
@@ -141,7 +141,7 @@ export default function Dashboard() {
       <div className="relative overflow-hidden rounded-2xl p-6 text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 shadow-lg animate-gradient-x">
         {/* Animated floating shapes */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          <div className="absolute w-32 h-32 bg-white bg-opacity-10 rounded-full blur-2xl animate-float-slow left-[-40px] top-[-40px]" />
+          <div className="absolute w-32 h-32 bg-[#D9D9D9] bg-opacity-10 rounded-full blur-2xl animate-float-slow left-[-40px] top-[-40px]" />
           <div className="absolute w-24 h-24 bg-white bg-opacity-10 rounded-full blur-2xl animate-float-medium right-[-30px] bottom-[-30px]" />
         </div>
         <div className="relative z-10 flex items-center gap-4">

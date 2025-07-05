@@ -90,9 +90,9 @@ export default function Settings() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-[#042E3A]">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
+        <h1 className="text-2xl font-bold text-white">Settings</h1>
       </div>
 
       <div className="lg:grid lg:grid-cols-4 lg:gap-6 space-y-6 lg:space-y-0">
